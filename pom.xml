@@ -12,6 +12,7 @@
 
 	<modules>
 		<module>sweet-junit-runner-core</module>
+		<module>sweet-junit-runner-example</module>
 	</modules>
 
 	<dependencyManagement>

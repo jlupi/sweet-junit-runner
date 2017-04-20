@@ -2,3 +2,5 @@
 *.xml
 /target
 /build
+/sweet-junit-runner-core/target/
+/sweet-junit-runner-example/target/
