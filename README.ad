@@ -1,0 +1,127 @@
+= sweet-junit-runner
+
+The sweet junit runner allows to dynamically load test classes into `junit Suites`.
+
+== The problem to solve
+
+The maintenance of integration tests is a difficult and time consuming process.
+
+In a Spring managed environment for example, each integration test starts the spring container before the test
+execution and destroys it when the test is finished. This is a very time consuming process, especially if there are dozens
+of test cases.
+
+To solve the problem you can group your tests into junit Suites like this:
+
+[source,java]
+----
+@RunWith(Suite.class)
+
+@Suite.SuiteClasses({
+   TestJunit1.class,
+   TestJunit2.class
+})
+
+public class JunitTestSuite {
+}
+----
+
+As you can see, this solution requires you to hard code the test classes in the `JunitTestSuite` in order to execute them.
+If one writes another test and forgets to add it to the `SuiteClasses` list, the test will not be executed.
+
+== Usage
+
+The `sweet-junit-runner` allows to dynamically load test classes annotated with `@IntegrationTest` into a Suite as follows:
+
+[source,java]
+----
+@IntegrationTest
+public class ClassToLoadTest {
+
+    @Test
+    public void testMe() {
+        System.out.println("I was here!");
+    }
+
+}
+----
+
+[source,java]
+----
+@RunWith(SuiteRunner.class)
+public class IntegrationTestSuite {
+}
+----
+
+
+You can provide a custom configuration to load classes from a specific package (down the tree):
+
+[source,java]
+----
+@RunWith(SuiteRunner.class)
+@SuiteConfiguration("org.sweet.core")
+public class IntegrationTestSuite {
+}
+----
+
+In the following example the
+
+- org.sweet.core.TestJunit1 - will be loaded
+- org.sweet.core.sample.TestJunit2 - will be loaded
+- org.sweet.TestJunit3 - will NOT be loaded
+
+This way one can assign different test classes to different junit Suites.
+
+== Maven integration
+
+The `maven-surefire-plugin` allows to execute Suites. Example:
+
+[source,xml]
+----
+<profiles>
+	<profile>
+		<id>integration-tests</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>integration-tests</id>
+							<phase>integration-test</phase>
+							<goals>
+								<goal>test</goal>
+							</goals>
+							<configuration>
+								<includes>
+									<include>**/*Suite.java</include>
+								</includes>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+</profiles>
+----
+
+== TODOs
+
+=== Extended configuration
+
+Allow loading test classes based on naming pattern as an alternative for `@IntegrationTest` annotation
+
+=== Preconditions
+
+Add Preconditions to simplify the maintenance of integration test
+
+* integration test can be linked to a precondition
+* preconditions will be checked before the test are executed
+* the integration test will not be executed when the precondition test fails
+
+*Use case*
+
+20 out of 50 Integration tests depend on a Database connection.
+If the Database is down, the 20 Tests will not be executed.
+The precondition test will be failing with a proper explanation.
