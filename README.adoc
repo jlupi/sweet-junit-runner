@@ -58,16 +58,16 @@ You can provide a custom configuration to load classes from a specific package (
 [source,java]
 ----
 @RunWith(SuiteRunner.class)
-@SuiteConfiguration("org.sweet.core")
+@SuiteConfiguration("org.codelamb.sweet.core")
 public class IntegrationTestSuite {
 }
 ----
 
 In the following example the
 
-- org.sweet.core.TestJunit1 - will be loaded
-- org.sweet.core.sample.TestJunit2 - will be loaded
-- org.sweet.TestJunit3 - will NOT be loaded
+- org.codelamb.sweet.core.TestJunit1 - will be loaded
+- org.codelamb.sweet.core.sample.TestJunit2 - will be loaded
+- org.codelamb.sweet.TestJunit3 - will NOT be loaded
 
 This way one can assign different test classes to different junit Suites.
 
