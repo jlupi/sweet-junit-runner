@@ -1,5 +1,5 @@
 
-package org.sweet.core.runner;
+package org.codelamb.sweet.core.runner;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class IntegrationTestClassScannerTest {
-    private static final String PACKAGE_NAME = "org.sweet.core";
+    private static final String PACKAGE_NAME = "org.codelamb.sweet.core";
 
     @Test
     public void loadAnnotatedClasses() {

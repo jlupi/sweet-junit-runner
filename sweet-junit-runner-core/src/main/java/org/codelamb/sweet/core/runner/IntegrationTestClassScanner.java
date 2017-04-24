@@ -1,5 +1,5 @@
 
-package org.sweet.core.runner;
+package org.codelamb.sweet.core.runner;
 
 import org.reflections.Reflections;
 

@@ -1,5 +1,5 @@
 
-package org.sweet.core.runner;
+package org.codelamb.sweet.core.runner;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -10,6 +10,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE })
 @Inherited
-public @interface IntegrationTest {
-    boolean enabledInSuite() default true;
+public @interface SuiteConfiguration {
+    /**
+     * Package from which classes should be loaded.
+     */
+    String value() default "";
 }
