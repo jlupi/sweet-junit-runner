@@ -1,4 +1,4 @@
-package org.sweet.example;
+package org.codelamb.sweet.core.example;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package org.sweet.example;
+package org.codelamb.sweet.core.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-import org.sweet.core.runner.IntegrationTest;
+import org.codelamb.sweet.core.runner.IntegrationTest;
 
 import static org.junit.Assert.assertEquals;
 
