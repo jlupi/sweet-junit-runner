@@ -1,1 +1,0 @@
-# sweet-junit-runner
