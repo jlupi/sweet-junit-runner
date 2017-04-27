@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 public class MyService {
 
     public int onePlusOne() {
-        return 3;
+        return 2;
     }
 }

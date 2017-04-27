@@ -5,39 +5,27 @@
  */
 package org.codelamb.sweet.core.example;
 
+import org.codelamb.sweet.core.runner.IntegrationTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-import org.codelamb.sweet.core.runner.IntegrationTest;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-// ApplicationContext will be loaded from the static inner ContextConfiguration class
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = {MyService.class, MyService2.class, MyService3.class}, loader = AnnotationConfigContextLoader.class)
 @IntegrationTest
 public class MyService3Test {
 
-  @Configuration
-  static class ContextConfiguration {
+    @Autowired
+    private MyService3 myService3;
 
-    @Bean
-    public MyService3 myService3() {
-      return new MyService3();
+    @Test
+    public void testMe() {
+        assertEquals(4, myService3.onePlusThree());
+        System.out.println("Done 3");
     }
-  }
-
-  @Autowired
-  MyService3 myService3;
-
-  @Test
-  public void testMe() {
-    assertEquals(7, myService3.onePlusThree());
-    System.out.println("Done 3");
-  }
 }
