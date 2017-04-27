@@ -22,7 +22,8 @@ public class IntegrationTestClassScannerTest {
 
         // then
         assertTrue(allClasses.contains(ClassToLoadTest.class));
-        assertFalse(allClasses.contains(ClassToIgnoreTest.class));
+        assertFalse(allClasses.contains(ClassToIgnoreNoAnnotationTest.class));
+        assertFalse(allClasses.contains(ClassToIgnoreDisabledTest.class));
 
         for (Class<?> allClass : allClasses) {
             IntegrationTest isAnnotated = allClass.getAnnotation(IntegrationTest.class);
