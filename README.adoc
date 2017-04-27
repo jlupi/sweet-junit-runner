@@ -2,6 +2,8 @@
 
 The sweet junit runner allows to dynamically load test classes into `junit Suites`.
 
+image:https://travis-ci.org/jlupi/sweet-junit-runner.svg?branch=master["Build Status", link="https://travis-ci.org/jlupi/sweet-junit-runner"]
+
 == The problem to solve
 
 The maintenance of integration tests is a difficult and time consuming process.
@@ -106,7 +108,7 @@ The `maven-surefire-plugin` allows to execute Suites. Example:
 </profiles>
 ----
 
-== TODOs
+== Future features
 
 === Extended configuration
 
