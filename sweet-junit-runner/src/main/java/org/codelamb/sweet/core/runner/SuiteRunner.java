@@ -1,12 +1,17 @@
 
 package org.codelamb.sweet.core.runner;
 
-import java.util.Set;
-
 import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.RunnerBuilder;
 
+import java.util.Set;
+
+/**
+ * Allows to dynamically load classes into JUnit Suite. <br><br>
+ * To use it annotate the Suite with <code>@RunWith(SuiteRunner.class)</code> <br><br>
+ * <code>@SuiteConfiguration</code> must be defined to tell the runner where to seach for the test classes.
+ */
 public class SuiteRunner extends Suite {
 
     public SuiteRunner(Class<?> klass, RunnerBuilder builder) throws InitializationError {
@@ -17,10 +22,10 @@ public class SuiteRunner extends Suite {
         SuiteConfiguration annotation = klass.getAnnotation(SuiteConfiguration.class);
         if (annotation == null) {
             throw new InitializationError(SuiteRunner.class.getName() + " requires "
-                    + SuiteConfiguration.class.getName() + " configuration annotation.");
+                    + SuiteConfiguration.class.getName() + " annotation.");
         }
 
-        IntegrationTestClassScanner classLoader = new IntegrationTestClassScanner(annotation.value());
+        SuiteComponentsScanner classLoader = new SuiteComponentsScanner(annotation.value());
 
         Set<Class<?>> classes = classLoader.loadClasses();
         return classes.toArray(new Class[classes.size()]);

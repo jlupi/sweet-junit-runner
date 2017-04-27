@@ -32,12 +32,22 @@ If one writes another test and forgets to add it to the `SuiteClasses` list, the
 
 == Usage
 
-The `sweet-junit-runner` allows to dynamically load test classes annotated with `@IntegrationTest` into a Suite as follows:
+The `sweet-junit-runner` allows to dynamically load test classes annotated with `@IntegrationTest` or `@SuiteTest` into a JUnit Suite as follows:
 
 [source,java]
 ----
 @IntegrationTest
-public class ClassToLoadTest {
+public class IntegrationTestToLoadTest {
+
+    @Test
+    public void testMe() {
+        System.out.println("I was here!");
+    }
+
+}
+
+@SuiteTest
+public class UnitTestToLoadTest {
 
     @Test
     public void testMe() {
@@ -50,32 +60,25 @@ public class ClassToLoadTest {
 [source,java]
 ----
 @RunWith(SuiteRunner.class)
-public class IntegrationTestSuite {
-}
-----
-
-
-You can provide a custom configuration to load classes from a specific package (down the tree):
-
-[source,java]
-----
-@RunWith(SuiteRunner.class)
 @SuiteConfiguration("org.codelamb.sweet.core")
 public class IntegrationTestSuite {
 }
 ----
 
-In the following example the
 
-- org.codelamb.sweet.core.TestJunit1 - will be loaded
-- org.codelamb.sweet.core.sample.TestJunit2 - will be loaded
-- org.codelamb.sweet.TestJunit3 - will NOT be loaded
+Note that you have to provide a `SuiteConfiguration` to tell the runner where to search for the classes that have to be loaded:
+
+In the previous example the
+
+- org.codelamb.sweet.core.TestJunit1 - would be loaded
+- org.codelamb.sweet.core.sample.TestJunit2 - would be loaded
+- org.codelamb.sweet.TestJunit3 - would NOT be loaded
 
 This way one can assign different test classes to different junit Suites.
 
 == Maven integration
 
-The `maven-surefire-plugin` allows to execute Suites. Example:
+The `maven-surefire-plugin` allows to execute Suites. For example:
 
 [source,xml]
 ----
@@ -108,7 +111,7 @@ The `maven-surefire-plugin` allows to execute Suites. Example:
 </profiles>
 ----
 
-== Future features
+== Future ideas
 
 === Extended configuration
 
