@@ -47,6 +47,8 @@
     <org.reflections.version>0.9.11</org.reflections.version>
     <maven.jacoco.plugin.version>0.7.2.201409121644</maven.jacoco.plugin.version>
     <maven.coveralls.plugin.version>4.3.0</maven.coveralls.plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <dependencies>
