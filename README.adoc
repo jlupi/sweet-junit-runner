@@ -17,7 +17,6 @@ To solve the problem you can group your tests into junit Suites like this:
 [source,java]
 ----
 @RunWith(Suite.class)
-
 @Suite.SuiteClasses({
    TestJunit1.class,
    TestJunit2.class
