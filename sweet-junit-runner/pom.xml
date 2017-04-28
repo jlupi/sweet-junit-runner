@@ -45,6 +45,7 @@
   <properties>
     <org.junit.version>4.12</org.junit.version>
     <org.reflections.version>0.9.11</org.reflections.version>
+    <maven.jacoco.plugin.version>0.7.2.201409121644</maven.jacoco.plugin.version>
   </properties>
 
   <dependencies>
@@ -63,6 +64,19 @@
 
   <build>
     <plugins>
+      <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${maven.jacoco.plugin.version}</version>
+          <executions>
+              <execution>
+                  <id>prepare-agent</id>
+                  <goals>
+                      <goal>prepare-agent</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
