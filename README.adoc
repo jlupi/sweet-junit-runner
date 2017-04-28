@@ -1,8 +1,10 @@
+
+image:https://travis-ci.org/jlupi/sweet-junit-runner.svg?branch=master["Build Status", link="https://travis-ci.org/jlupi/sweet-junit-runner"]
+image:https://coveralls.io/repos/github/jlupi/sweet-junit-runner/badge.svg?branch=master["Test Coverage", link="https://coveralls.io/github/jlupi/sweet-junit-runner?branch=master"]
+
 = sweet-junit-runner
 
 The sweet junit runner allows to dynamically load test classes into `junit Suites`.
-
-image:https://travis-ci.org/jlupi/sweet-junit-runner.svg?branch=master["Build Status", link="https://travis-ci.org/jlupi/sweet-junit-runner"]
 
 == The problem to solve
 

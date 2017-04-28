@@ -2,9 +2,5 @@ language: java
 jdk:
   - oraclejdk7
 before_script: cd sweet-junit-runner
-install:
-  - mvn -f sweet-junit-runner/pom.xml test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-script:
-  - mvn test jacoco:report
 after_success:
-  - mvn -f sweet-junit-runner/pom.xml coveralls:report
+  - mvn jacoco:report coveralls:report
