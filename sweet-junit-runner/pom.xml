@@ -46,6 +46,7 @@
     <org.junit.version>4.12</org.junit.version>
     <org.reflections.version>0.9.11</org.reflections.version>
     <maven.jacoco.plugin.version>0.7.2.201409121644</maven.jacoco.plugin.version>
+    <maven.coveralls.plugin.version>4.3.0</maven.coveralls.plugin.version>
   </properties>
 
   <dependencies>
@@ -63,7 +64,12 @@
 
 
   <build>
-    <plugins>
+    <plugins>       
+      <plugin>
+          <groupId>org.eluder.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>${maven.coveralls.plugin.version}</version>
+      </plugin>
       <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
