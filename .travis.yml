@@ -3,4 +3,4 @@ jdk:
   - oraclejdk7
 before_script: cd sweet-junit-runner
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn jacoco:report coveralls:report
