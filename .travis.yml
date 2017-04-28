@@ -5,4 +5,4 @@ before_script: cd sweet-junit-runner
 install:
   - mvn -f sweet-junit-runner/pom.xml test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 after_success:
-  - mvn -f sweet-junit-runner/pom.xml jacoco:report coveralls:report
+  - mvn clean test jacoco:report coveralls:report
