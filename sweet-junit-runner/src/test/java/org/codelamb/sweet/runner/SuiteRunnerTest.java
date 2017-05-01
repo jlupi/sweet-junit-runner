@@ -1,6 +1,6 @@
-package org.codelamb.sweet.core.runner;
+package org.codelamb.sweet.runner;
 
-import org.codelamb.sweet.core.runner.testclasses.IgnoredNotAnnotatedTest;
+import org.codelamb.sweet.runner.testclasses.IgnoredNotAnnotatedTest;
 import org.junit.Test;
 import org.junit.internal.builders.JUnit4Builder;
 import org.junit.runners.model.InitializationError;

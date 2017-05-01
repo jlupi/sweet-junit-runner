@@ -1,7 +1,7 @@
 
-package org.codelamb.sweet.core.runner;
+package org.codelamb.sweet.runner;
 
-import org.codelamb.sweet.core.runner.testclasses.*;
+import org.codelamb.sweet.runner.testclasses.*;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class SuiteComponentsScannerTest {
 
-    private static final String PACKAGE_NAME = "org.codelamb.sweet.core";
+    private static final String PACKAGE_NAME = "org.codelamb.sweet";
 
     @Test
     public void loadAnnotatedClasses() {

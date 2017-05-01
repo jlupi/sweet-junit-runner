@@ -61,7 +61,7 @@ public class UnitTestToLoadTest {
 [source,java]
 ----
 @RunWith(SuiteRunner.class)
-@SuiteConfiguration("org.codelamb.sweet.core")
+@SuiteConfiguration("org.codelamb.sweet")
 public class IntegrationTestSuite {
 }
 ----
@@ -71,9 +71,9 @@ Note that you have to provide a `SuiteConfiguration` to tell the runner where to
 
 In the previous example the
 
-- org.codelamb.sweet.core.TestJunit1 - would be loaded
-- org.codelamb.sweet.core.sample.TestJunit2 - would be loaded
-- org.codelamb.sweet.TestJunit3 - would NOT be loaded
+- org.codelamb.sweet.TestJunit1 - would be loaded
+- org.codelamb.sweet.sample.TestJunit2 - would be loaded
+- org.codelamb.TestJunit3 - would NOT be loaded
 
 This way one can assign different test classes to different junit Suites.
 

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2017.
  */
-package org.codelamb.sweet.core.example;
+package org.codelamb.sweet.example;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

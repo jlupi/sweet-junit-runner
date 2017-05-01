@@ -1,5 +1,5 @@
 
-package org.codelamb.sweet.core.runner;
+package org.codelamb.sweet.runner;
 
 import org.junit.runner.RunWith;
 

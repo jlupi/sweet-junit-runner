@@ -1,9 +1,9 @@
 /*
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2017.
  */
-package org.codelamb.sweet.core.runner.testclasses;
+package org.codelamb.sweet.runner.testclasses;
 
-import org.codelamb.sweet.core.runner.IntegrationTest;
+import org.codelamb.sweet.runner.IntegrationTest;
 
 @IntegrationTest
 public abstract class IgnoredAbstractTest {
