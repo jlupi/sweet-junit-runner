@@ -1,5 +1,5 @@
 *.iml
 /.idea
-/target
-/build
-/examples/spring/target/
+*/target
+*/build
+*/examples/spring/target/
