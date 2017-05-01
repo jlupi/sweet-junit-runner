@@ -21,7 +21,7 @@
   </licenses>
   
   <scm>
-    <connection>scm:git:git://github.com/jlupi/sweet-junit-runner.git</connection>
+    <connection>scm:git:git@github.com/jlupi/sweet-junit-runner.git</connection>
     <url>https://github.com/jlupi/sweet-junit-runner.git</url>
     <tag>HEAD</tag>
   </scm>
