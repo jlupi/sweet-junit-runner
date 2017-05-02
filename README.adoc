@@ -1,6 +1,7 @@
 
 image:https://travis-ci.org/jlupi/sweet-junit-runner.svg?branch=master["Build Status", link="https://travis-ci.org/jlupi/sweet-junit-runner"]
 image:https://coveralls.io/repos/github/jlupi/sweet-junit-runner/badge.svg?branch=master["Test Coverage", link="https://coveralls.io/github/jlupi/sweet-junit-runner?branch=master"]
+image:https://maven-badges.herokuapp.com/maven-central/org.codelamb/sweet-junit-runner/badge.svg["Test Coverage", link="https://maven-badges.herokuapp.com/maven-central/org.codelamb/sweet-junit-runner"]
 
 = sweet-junit-runner
 
