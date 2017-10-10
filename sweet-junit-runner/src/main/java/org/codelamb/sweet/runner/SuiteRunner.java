@@ -1,4 +1,3 @@
-
 package org.codelamb.sweet.runner;
 
 import org.junit.runners.Suite;
@@ -14,20 +13,20 @@ import java.util.Set;
  */
 public class SuiteRunner extends Suite {
 
-    public SuiteRunner(Class<?> klass, RunnerBuilder builder) throws InitializationError {
-        super(builder, klass, loadClasses(klass));
+  public SuiteRunner(Class<?> klass, RunnerBuilder builder) throws InitializationError {
+    super(builder, klass, loadClasses(klass));
+  }
+
+  private static Class<?>[] loadClasses(Class<?> klass) throws InitializationError {
+    SuiteConfiguration annotation = klass.getAnnotation(SuiteConfiguration.class);
+    if (annotation == null) {
+      throw new InitializationError(SuiteRunner.class.getName() + " requires "
+              + SuiteConfiguration.class.getName() + " annotation.");
     }
 
-    private static Class<?>[] loadClasses(Class<?> klass) throws InitializationError {
-        SuiteConfiguration annotation = klass.getAnnotation(SuiteConfiguration.class);
-        if (annotation == null) {
-            throw new InitializationError(SuiteRunner.class.getName() + " requires "
-                    + SuiteConfiguration.class.getName() + " annotation.");
-        }
+    SuiteComponentsScanner classLoader = new SuiteComponentsScanner(annotation.value(), annotation.containsFilter());
 
-        SuiteComponentsScanner classLoader = new SuiteComponentsScanner(annotation.value());
-
-        Set<Class<?>> classes = classLoader.loadClasses();
-        return classes.toArray(new Class[classes.size()]);
-    }
+    Set<Class<?>> classes = classLoader.loadClasses();
+    return classes.toArray(new Class[classes.size()]);
+  }
 }

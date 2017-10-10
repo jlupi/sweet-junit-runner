@@ -1,4 +1,3 @@
-
 package org.codelamb.sweet.runner;
 
 import java.lang.annotation.*;
@@ -12,9 +11,13 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Inherited
 public @interface SuiteConfiguration {
-    /**
-     * Package from which classes should be loaded.
-     *
-     */
-    String value() default "";
+  /**
+   * Package from which classes should be loaded.
+   */
+  String value() default "";
+
+  /**
+   * loads classes which cannocial-name contains containsFilter, ignored if class is annotated with @IntegrationTest or @SuitTest.
+   */
+  String containsFilter() default "";
 }
