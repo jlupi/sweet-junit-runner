@@ -17,7 +17,7 @@ public @interface SuiteConfiguration {
   String value() default "";
 
   /**
-   * loads classes which cannocial-name contains containsFilter ignored if class has Annotation IntegrationTest or SuitTest
+   * loads classes which cannocial-name contains containsFilter, ignored if class is annotated with @IntegrationTest or @SuitTest.
    */
   String containsFilter() default "";
 }
