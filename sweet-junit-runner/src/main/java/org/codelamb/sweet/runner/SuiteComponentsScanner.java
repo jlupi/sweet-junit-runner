@@ -28,7 +28,7 @@ class SuiteComponentsScanner {
   }
 
   public Set<Class<?>> loadClasses() {
-    Reflections reflections = //new Reflections(  packageToScan);
+    Reflections reflections =
             new Reflections(
                     new ConfigurationBuilder()
                             .setUrls(ClasspathHelper.forPackage(packageToScan))
