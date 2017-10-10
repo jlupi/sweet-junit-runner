@@ -34,6 +34,8 @@ If one writes another test and forgets to add it to the `SuiteClasses` list, the
 
 == Usage
 
+=== Using annotations
+
 The `sweet-junit-runner` allows to dynamically load test classes annotated with `@IntegrationTest` or `@SuiteTest` into a JUnit Suite as follows:
 
 [source,java]
@@ -77,6 +79,24 @@ In the previous example the
 - org.codelamb.TestJunit3 - would NOT be loaded
 
 This way one can assign different test classes to different junit Suites.
+
+=== Using a pattern
+
+If you do not want to annotate all your test-classes its possible to use a pattern which will load all classes which match this pattern.
+
+[source,java]
+----
+@RunWith(SuiteRunner.class)
+@SuiteConfiguration("org.codelamb.sweet", containsFilter="Test")
+public class IntegrationTestSuite {
+}
+----
+
+In the previous example the
+
+- org.codelamb.sweet.TestJunit1 - would be loaded (because of its annotated)
+- org.codelamb.sweet.sample.TestJunit2 - would be loaded (because of its annotated)
+- org.codelamb.TestJunit3 - would be be loaded (because it matches containsFilter)
 
 == Maven integration
 
