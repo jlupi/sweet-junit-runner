@@ -87,7 +87,7 @@ If you do not want to annotate all your test-classes its possible to use a patte
 [source,java]
 ----
 @RunWith(SuiteRunner.class)
-@SuiteConfiguration("org.codelamb.sweet", containsFilter="Test")
+@SuiteConfiguration(value = "org.codelamb.sweet", containsFilter = "Test")
 public class IntegrationTestSuite {
 }
 ----
