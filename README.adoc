@@ -82,7 +82,7 @@ This way one can assign different test classes to different junit Suites.
 
 === Using a pattern
 
-If you do not want to annotate all your test-classes its possible to use a pattern which will load all classes which match this pattern.
+If you do not want to annotate all your test-classes its possible to use a pattern which will load all classes that match this pattern.
 
 [source,java]
 ----
