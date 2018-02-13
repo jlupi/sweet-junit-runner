@@ -16,6 +16,7 @@ before_install:
 install:
   - cd sweet-junit-runner
   - mvn install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+  - cd ..
 
 deploy:
   -
