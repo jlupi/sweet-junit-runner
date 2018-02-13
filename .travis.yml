@@ -2,6 +2,34 @@ language: java
 dist: precise
 jdk:
   - oraclejdk7
-before_script: cd sweet-junit-runner
+before_script:
+  - cp .travis.settings.xml $HOME/.m2/settings.xml
+  - cd sweet-junit-runner
+
 after_success:
   - mvn jacoco:report coveralls:report
+
+before_install:
+  - if [ ! -z "$GPG_SECRET_KEYS" ]; then echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import; fi
+  - if [ ! -z "$GPG_OWNERTRUST" ]; then echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust; fi
+
+install:
+  - mvn install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+
+deploy:
+  -
+    provider: script
+    script: ../.travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: jlupi/sweet-junit-runner
+      branch: master
+      jdk: oraclejdk7
+  -
+    provider: script
+    script: ../.travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: jlupi/sweet-junit-runner
+      tags: true
+      jdk: oraclejdk7
